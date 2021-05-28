@@ -1,0 +1,46 @@
+
+body, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, div, svg, ul, li, p, a {font-family: "Gotham",sans-serif;}
+h1, h2, h3, h4, h5, h6 {text-align: center;color:rgba(54,153,177,1)}
+h1 {font-size: 24px;!important;}
+h2 {font-size: 20px;!important;}
+h3 {font-size: 18px;!important;}
+h4 {font-size: 16px;!important;}
+h5, h6 {font-size: 14px;!important;}
+p, ul, li {font-size: 14px;!important;text-align:left}
+.content {
+  background: #FFF;
+}
+.rhandsontable {
+  overflow: hidden
+}
+.box {
+  height: 100%;
+  border: 1px solid #ebf5f7
+}
+.box-header {
+  margin-bottom: 0!important;
+}
+.box {
+  background-color: rgba(54,153,177,.1);
+  border: 1px solid rgba(54,153,177,.5);
+}
+.container {
+  float: left;
+}
+#navbar .nav navbar-nav shiny-tab-input shiny-bound-input {
+float: right;
+}
+.navbar-header {
+  margin-bottom: 0!important;
+}
+.navbar-default {
+  background-color: rgba(54,153,177,.1);
+  border-bottom: 1px solid rgba(54,153,177,1);
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  color: #FFF;
+    background-color: rgba(54,153,177,1);
+}
+
+
+

@@ -1,0 +1,11 @@
+
+
+structure(list(run_id = c("run_vfJUgLg", "run_9TJo5mM", "run_ABg6q94",
+"run_Ls3LIac", "run_4SfBjdE", "run_FQHUvq0", "run_Ak5OSKY"),
+    stage_name = c("starAlign", "starAlign", "starAlign", "starAlign",
+    "starAlign", "starAlign", "starAlign"), inst_type = c("star_align",
+    "star_align", "star_align", "star_align", "star_align", "star_align",
+    "star_align"), exit_status = c(0L, 0L, 0L, 0L, 0L, 0L, 0L
+    )), .Names = c("run_id", "stage_name", "inst_type", "exit_status"
+), row.names = c(NA, 7L), class = "data.frame")
+
