@@ -1,6 +1,6 @@
 
 # Packages used by the app
-packages <- c("shiny", "shinydashboard", "ggvis", "ggplots", "stats", "ggplot2", "readr")
+packages <- c("shiny", "shinydashboard", "ggvis", "gplots", "stats", "ggplot2", "readr")
 
 # Install packages if not installed
 package_install <- function(x){
