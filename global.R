@@ -7,6 +7,11 @@ library(stats)
 library(ggplot2)
 library(readr)
 
+
+# Source help tab
+
+source("./code/help_tab.R")
+
 ################## CLUSTERING DATA ####################################
 
 # get colors according to ggplots automated color hues

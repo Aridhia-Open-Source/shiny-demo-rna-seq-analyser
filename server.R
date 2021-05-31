@@ -144,7 +144,7 @@ server <- shinyServer(function(input, output, session) {
     data.frame(
       Gene_symbol = my_genes_ann()$hgnc_symbol,
       Ensembl_id = my_genes_ann()$ensembl_gene_id,
-      Log2_mean_exprs = log2_mean_exprs(),
+      log2_mean_exprs = log2_mean_exprs(),
       Log2fc = log2fc(),
       id = paste(1:length(log2fc()), ":1:", my_genes_ann()$hgnc_symbol,":2:", my_genes_ann()$ensembl_gene_id, sep = ""),
       Significant_genes = as.character(abs(log2fc()) > input$log2fc)
@@ -167,14 +167,22 @@ server <- shinyServer(function(input, output, session) {
     
     paste0(names(x), ": ", format(x), collapse = "<br />")
   }
+
   
-  #plot scatter plot in ggvis
-  ggvis(exp_dat) %>% 
-    layer_points(~Log2_mean_exprs, ~Log2fc, fill= ~Significant_genes, key:= ~id, opacity := 0.7,
-                 opacity.hover := 1, size := 20, size.hover := 40) %>%
-    add_tooltip(all_values1) %>%
-    set_options(height = 800, width = "auto") %>%
-    bind_shiny("ggvis_output_exp_fold_change")        
+  # Commented because the X-AXIS wasn't showing information - Changed to ggplot
+  #exp_dat %>% ggvis (x = ~log2_mean_exprs, y = ~Log2fc) %>%
+  #  layer_points(fill= ~Significant_genes, key:= ~id, opacity := 0.7,
+  #              opacity.hover := 1, size := 20, size.hover := 40) %>%
+  #  add_tooltip(all_values1) %>%
+  #  set_options(height = 800, width = "auto") %>%
+  #  hide_axis("x") %>%
+  #  bind_shiny("output_exp_fold_change")
+  
+  
+  # Construct the scatter plot
+  output$output_exp_fold_change <- renderPlot({
+    ggplot(exp_dat(), aes(x = log2_mean_exprs, y = Log2fc, color = Significant_genes)) + geom_point()
+  })
   
   
   ##### QC PLOTS #####

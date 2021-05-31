@@ -8,7 +8,8 @@ sidebar <- dashboardSidebar(
     menuItem("PCA Analysis", tabName = "pca_analysis", icon = icon("line-chart")),
     menuItem("Gene Clustering", tabName = "clustered_genes", icon = icon("line-chart")),
     menuItem("Gene Expression Fold Changes", tabName = "gene_expression", icon = icon("line-chart")),
-    menuItem("QC Summary", tabName = "rnaseq_summary", icon = icon("bar-chart"))
+    menuItem("QC Summary", tabName = "rnaseq_summary", icon = icon("bar-chart")),
+    menuItem("Help Tab", tabName = "help_tab", icon = icon("question-circle"))
     
   ),
   selectInput("run_id", "Run:", choices = run_ids, selected = "run_ABg6q94")
@@ -21,14 +22,6 @@ body <- dashboardBody(
     tabItem(tabName = "pca_analysis",
       # Application title
       h1("Visualising the distribution of treatment and control datasets"), 
-      div(id = "app_info_pca", class = "collapse out", 
-        p("By plotting the gene expression profiles of each dataset based on their principal components it is possible to see grouping patterns."),
-        p("In this example the datasets clearly cluster by treatment type and duration.")
-      ),
-      br(),
-      br(), 
-      HTML("<button type='button' class='btn' data-toggle='collapse' style='float:left' data-target='#app_info_pca'>
-           <span class='glyphicon glyphicon-collapse-down'></span> More Information</button>"),
       br(),
       br(),
       fluidRow(
@@ -51,15 +44,6 @@ body <- dashboardBody(
     ),
     tabItem(tabName = "clustered_genes",
       h1("Identifying clusters of samples and genes"), 
-      div(id = "app_info_clus", class = "collapse out", 
-        p("Using an unsupervised clustering algorithm, specified by the user, it is possible to identify clusters of samples with similar expression profiles."),
-        p("At the same time groups of genes (rows) which differ between these clusters can be identified."),
-        p("Red represents high relative expression, green represents low relative expression.")
-      ),
-      br(),
-      br(), 
-      HTML("<button type='button' class='btn' data-toggle='collapse' style='float:left' data-target='#app_info_clus'>
-           <span class='glyphicon glyphicon-collapse-down'></span> More Information</button>"), 
       br(),
       br(),
       fluidRow(
@@ -81,21 +65,12 @@ body <- dashboardBody(
     ),    
     tabItem(tabName = "gene_expression",
       h1("Differential gene expression analysis"), 
-      div(id = "app_info_expr", class = "collapse out", 
-        p("To identify genes of interest the user can visualise the genes which change the most after treatment."),
-        p("Use the slider to change the threshold fold change value to highlight genes of interest."),
-        p("Hover over each point to get the gene name.")
-      ),
-      br(),
-      br(), 
-      HTML("<button type='button' class='btn' data-toggle='collapse' style='float:left' data-target='#app_info_expr'>
-           <span class='glyphicon glyphicon-collapse-down'></span> More Information</button>"),
       br(),
       br(),
       fluidRow(
         box(title = h2("Gene Expression Log Fold Changes"), width = 8, solidHeader = FALSE,       
-          div(style = "height:750px;",
-            plotOutput("ggvis_output_exp_fold_change", height = "100%")   
+          div(style = "height:750px;width:800px",
+            plotOutput("output_exp_fold_change", height = "100%", width = "100%")   
           )   
         ),
         box(title = h3("Inputs"), width = 4, solidHeader = FALSE,
@@ -117,7 +92,9 @@ body <- dashboardBody(
         #    selectInput("run_id", "Run:", choices=run_ids, selected="run_ABg6q94")##TODO automatically list all levels of run_ids in table
         #)
       )
-    )
+    ),
+    tabItem(tabName = "help_tab",
+            fluidRow(documentation_tab()))
   )
 )
 
