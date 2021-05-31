@@ -1,11 +1,3 @@
-library(shiny)
-library(shinydashboard)
-library(ggvis)
-library(gplots)
-library(stats)
-library(ggplot2)
-library(readr)
-
 
 # Packages used by the app
 packages <- c("shiny", "shinydashboard", "ggvis", "ggplots", "stats", "ggplot2", "readr")
