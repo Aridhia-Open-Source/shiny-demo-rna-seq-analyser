@@ -18,6 +18,13 @@ sidebar <- dashboardSidebar(
 body <- dashboardBody(
   includeCSS("./www/styles.css"),
   
+  # Browser tab title
+  titlePanel(
+    windowTitle = "RNA-seq Analyser",
+    title = tags$head(tags$link(rel = "shortcut icon", href="favicon.ico"))
+  ),
+  
+  
   tabItems(
     tabItem(tabName = "pca_analysis",
       # Application title
