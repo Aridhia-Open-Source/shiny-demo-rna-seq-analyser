@@ -51,7 +51,7 @@ ensembl_df <- getBM(attributes=c("ensembl_gene_id", "hgnc_symbol","chromosome_na
 You can clone this repository by using the command:
 
 ```
-git clone https://github.com/aridhia/demo-rna-seq-analyser
+git clone https://github.com/Aridhia-Open-Source/shiny-demo-rna-seq-analyser
 ```
 
 Open the .Rproj file in RStudio, source the script called `dependencies.R` to install all the packages required by the app and run `runApp()` to start the app.
