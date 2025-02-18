@@ -17,7 +17,11 @@ sidebar <- dashboardSidebar(
 
 body <- dashboardBody(
   includeCSS("./www/styles.css"),
-  
+  tags$head(tags$style(HTML('
+    .ggvis-output.recalculating {
+      --shiny-fade-opacity: 1;
+    }
+  '))),
   # Browser tab title
   titlePanel(
     windowTitle = "RNA-seq Analyser",
