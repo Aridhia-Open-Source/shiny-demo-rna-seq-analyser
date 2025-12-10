@@ -59,7 +59,7 @@ Open the .Rproj file in RStudio, source the script called `dependencies.R` to in
 ### Deploying to the workspace
 
 1. Download this GitHub repo as a .zip file.
-2. Create a new blank Shiny app in your workspace called "rna-seq-analyser".
+2. Create a new blank R web app in your workspace called "rna-seq-analyser".
 3. Navigate to the `rna-seq-analyser` folder under "files".
 4. Delete the `app.R` file from the `rna-seq-analyser` folder. Make sure you keep the `.version` file!
 5. Upload the .zip file to the `rna-seq-analyser` folder.
